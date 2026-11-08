@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Site Timer",
+  "version": "1.0",
+  "description": "Shows how long you've been on the current page.",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["timer.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ]
+}
