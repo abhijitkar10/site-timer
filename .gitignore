@@ -2,3 +2,6 @@
 # local Claude Code tooling, not part of the extension
 .claude/
 .knowledge-graph/
+.mcp.json
+AGENTS.md
+CLAUDE.md
