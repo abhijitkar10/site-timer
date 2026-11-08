@@ -1,16 +1,17 @@
 <!doctype html>
 <meta charset="utf-8">
 <style>
-  body { font: 13px/1.4 system-ui, sans-serif; width: 240px; margin: 12px; }
+  body { font: 13px/1.4 system-ui, sans-serif; width: 250px; margin: 12px; }
   label { display: block; margin-bottom: 10px; font-weight: 600; }
-  input, textarea { display: block; width: 100%; box-sizing: border-box; margin-top: 4px; font: 400 13px system-ui, sans-serif; }
-  textarea { height: 120px; }
-  small { color: #666; }
+  input, textarea { display: block; width: 100%; box-sizing: border-box; margin-top: 4px; font: 400 13px ui-monospace, Menlo, monospace; }
+  textarea { height: 140px; }
+  small { display: block; margin-top: 10px; color: #666; }
 </style>
-<label>Daily minutes per site <input id="minutes" type="number" min="1"></label>
-<label>Countdown sites (one per line) <textarea id="sites" spellcheck="false"></textarea></label>
+<label>Sites and minutes (one per line)
+  <textarea id="sites" spellcheck="false" placeholder="youtube.com 15&#10;reddit.com 5"></textarea></label>
+<label>Default minutes for new sites <input id="minutes" type="number" min="1"></label>
 <button id="add">+ Add this site</button>
-<p></p>
-<small>Put * to count down on every site. Others get a count-up timer. Changes apply to pages you open next.</small>
+<small>Opening a listed site starts its countdown; at zero you get a notification and the tab closes.
+  <code>* 10</code> = every other site. Other sites get a count-up timer. Applies to pages you open next.</small>
 <script src="defaults.js"></script>
 <script src="popup.js"></script>

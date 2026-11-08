@@ -1,15 +1,16 @@
 # Site Timer
 
-A small timer in the bottom-right corner of every website, to stop doomscrolling.
+Stops doomscrolling: give each site a time limit. Opening the site starts its countdown; at zero you
+get a notification and the tab closes. Open it again and the countdown starts fresh.
 
-- **Countdown sites** (YouTube, Instagram, X, Reddit, Facebook, TikTok by default): a daily
-  countdown per site (10 min default). Reloading doesn't reset it. At zero the page is covered,
-  videos pause and scrolling stops; "5 more minutes" is the only way back in. Resets at midnight.
-- **Every other site**: a count-up timer showing how long you've been on the page.
+- Each site has its own limit (YouTube, Instagram, X, Reddit, Facebook, TikTok: 10 min by default).
+- The countdown sits in the bottom-right corner and turns red in the last minute.
+- Every other site shows a count-up timer instead.
 - Time only counts while the tab is visible. Click the timer to hide it.
 
-**Settings**: click the extension's toolbar icon (pin it via the puzzle-piece menu). Set the daily
-minutes, edit the site list (one per line, `*` = every site), or click **+ Add this site**.
+**Settings**: click the extension's toolbar icon (pin it via the puzzle-piece menu). One line per
+site, `site minutes`, e.g. `youtube.com 15`. `* 10` = every other site. **+ Add this site** adds the
+site you're on with the default minutes.
 
 ## Install (macOS)
 
@@ -21,3 +22,5 @@ curl -fsSL https://raw.githubusercontent.com/abhijitkar10/site-timer/main/instal
 - **Chrome**: Chrome won't let scripts add extensions, so the script opens `chrome://extensions`
   and copies the folder path; you click Developer mode → Load unpacked → paste.
 - **Any other Chromium browser**: Load unpacked `~/.site-timer` from its extensions page.
+
+Notifications need your browser allowed in macOS System Settings → Notifications.
