@@ -1,7 +1,15 @@
 # Site Timer
 
-A small timer in the bottom-right corner of every website, showing how long you've been on the page.
-Pauses when the tab is hidden. Click it to hide it.
+A small timer in the bottom-right corner of every website, to stop doomscrolling.
+
+- **Countdown sites** (YouTube, Instagram, X, Reddit, Facebook, TikTok by default): a daily
+  countdown per site (10 min default). Reloading doesn't reset it. At zero the page is covered,
+  videos pause and scrolling stops; "5 more minutes" is the only way back in. Resets at midnight.
+- **Every other site**: a count-up timer showing how long you've been on the page.
+- Time only counts while the tab is visible. Click the timer to hide it.
+
+**Settings**: click the extension's toolbar icon (pin it via the puzzle-piece menu). Set the daily
+minutes, edit the site list (one per line, `*` = every site), or click **+ Add this site**.
 
 ## Install (macOS)
 
