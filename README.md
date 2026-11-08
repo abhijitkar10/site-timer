@@ -9,7 +9,7 @@ get a notification and the tab closes. Open it again and the countdown starts fr
 - Time only counts while the tab is visible. Click the timer to hide it.
 
 **Settings**: click the extension's toolbar icon (pin it via the puzzle-piece menu). One line per
-site, `site minutes`, e.g. `youtube.com 15`. `* 10` = every other site. **+ Add this site** adds the
+site with minutes or minutes:seconds, e.g. `youtube.com 15` or `reddit.com 2:30`. `* 10` = every other site. **+ Add this site** adds the
 site you're on with the default minutes.
 
 ## Install (macOS)

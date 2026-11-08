@@ -7,11 +7,12 @@
   textarea { height: 140px; }
   small { display: block; margin-top: 10px; color: #666; }
 </style>
-<label>Sites and minutes (one per line)
-  <textarea id="sites" spellcheck="false" placeholder="youtube.com 15&#10;reddit.com 5"></textarea></label>
-<label>Default minutes for new sites <input id="minutes" type="number" min="1"></label>
+<label>Sites and time limits (one per line)
+  <textarea id="sites" spellcheck="false" placeholder="youtube.com 15&#10;reddit.com 2:30"></textarea></label>
+<label>Default time for new sites <input id="minutes" placeholder="10 or 2:30"></label>
 <button id="add">+ Add this site</button>
-<small>Opening a listed site starts its countdown; at zero you get a notification and the tab closes.
+<small>Time is minutes (<code>15</code>) or minutes:seconds (<code>2:30</code>, <code>0:45</code>).
+  Opening a listed site starts its countdown; at zero you get a notification and the tab closes.
   <code>* 10</code> = every other site. Other sites get a count-up timer. Applies to pages you open next.</small>
 <script src="defaults.js"></script>
 <script src="popup.js"></script>

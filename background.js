@@ -5,7 +5,7 @@ chrome.runtime.onMessage.addListener((msg, sender) => {
     type: 'basic',
     iconUrl: 'icon.png',
     title: `Time's up on ${msg.site}`,
-    message: `Your ${msg.mins} min are over, so the tab was closed.`,
+    message: `Your ${msg.limit} limit is up, so the tab was closed.`,
   });
   chrome.tabs.remove(sender.tab.id);
 });

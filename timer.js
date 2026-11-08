@@ -18,7 +18,7 @@ const fmt = s => {
   return h ? `${h}:${String(m).padStart(2, '0')}:${sec}` : `${m}:${sec}`;
 };
 
-chrome.storage.sync.get(DEFAULTS, ({ minutes, limits }) => {
+getSettings(({ minutes, limits }) => {
   const h = location.hostname;
   const site = Object.keys(limits).find(s => h === s || h.endsWith('.' + s)) ?? ('*' in limits ? '*' : null);
   site ? countDown(site === '*' ? h : site, limits[site] || minutes) : countUp();
@@ -38,6 +38,6 @@ function countDown(site, mins) {
     left--; show();
     if (left > 0) return;
     clearInterval(id);
-    chrome.runtime.sendMessage({ timesUp: true, site, mins });
+    chrome.runtime.sendMessage({ timesUp: true, site, limit: fmt(Math.round(mins * 60)) });
   }, 1000);
 }
