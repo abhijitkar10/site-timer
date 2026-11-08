@@ -3,14 +3,34 @@
 const host = document.createElement('div');
 const root = host.attachShadow({ mode: 'closed' }); // shadow DOM so site CSS can't touch it
 root.innerHTML = `<style>
-  div { position: fixed; bottom: 12px; right: 12px; z-index: 2147483647;
-        font: 600 13px/1 ui-monospace, Menlo, monospace; color: #fff;
-        background: rgba(0,0,0,.7); padding: 6px 9px; border-radius: 6px;
-        cursor: pointer; user-select: none; }
-  .low { background: #c0392b; }
-</style><div title="Click to hide">0:00</div>`;
-const t = root.querySelector('div');
-t.onclick = () => t.remove();
+  .pill {
+    position: fixed; bottom: 16px; right: 16px; z-index: 2147483647;
+    display: flex; align-items: center; gap: 6px; padding: 7px 12px 7px 10px;
+    font: 600 12px/1 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
+    font-variant-numeric: tabular-nums; letter-spacing: .01em; -webkit-font-smoothing: antialiased;
+    color: #1d1d1f; background: rgba(255, 255, 255, .78);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
+    border: .5px solid rgba(0, 0, 0, .12); border-radius: 999px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .12), 0 1px 3px rgba(0, 0, 0, .08);
+    cursor: pointer; user-select: none; transition: background .3s, color .3s, opacity .2s, transform .2s;
+  }
+  .pill:hover { transform: translateY(-1px); }
+  .pill svg { width: 13px; height: 13px; flex: none; }
+  .sub { font-weight: 500; opacity: .6; }
+  .low { color: #fff; background: rgba(255, 59, 48, .92); border-color: transparent; }
+  .gone { opacity: 0; transform: translateY(4px); }
+  @media (prefers-color-scheme: dark) {
+    .pill:not(.low) { color: #f5f5f7; background: rgba(44, 44, 46, .75); border-color: rgba(255, 255, 255, .1); }
+  }
+</style>
+<div class="pill" title="Click to hide">
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+    <circle cx="8" cy="9.2" r="5.3"/><path d="M8 9.2V6.6M6.4 1.8h3.2M8 1.8v2.1"/>
+  </svg>
+  <span class="v">0:00</span><span class="sub"></span>
+</div>`;
+const pill = root.querySelector('.pill'), v = root.querySelector('.v');
+pill.onclick = () => { pill.classList.add('gone'); setTimeout(() => host.remove(), 200); };
 document.documentElement.appendChild(host);
 
 const fmt = s => {
@@ -26,12 +46,13 @@ getSettings(({ minutes, limits }) => {
 
 function countUp() {
   let elapsed = 0;
-  setInterval(() => { if (!document.hidden) t.textContent = fmt(++elapsed); }, 1000);
+  setInterval(() => { if (!document.hidden) v.textContent = fmt(++elapsed); }, 1000);
 }
 
 function countDown(site, mins) {
   let left = Math.round(mins * 60);
-  const show = () => { t.textContent = fmt(left) + ' left'; t.classList.toggle('low', left < 60); };
+  root.querySelector('.sub').textContent = 'left';
+  const show = () => { v.textContent = fmt(left); pill.classList.toggle('low', left < 60); };
   show();
   const id = setInterval(() => {
     if (document.hidden) return;

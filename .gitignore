@@ -1,0 +1,4 @@
+.DS_Store
+# local Claude Code tooling, not part of the extension
+.claude/
+.knowledge-graph/

@@ -3,7 +3,7 @@ chrome.runtime.onMessage.addListener((msg, sender) => {
   if (!msg.timesUp || !sender.tab) return;
   chrome.notifications.create({
     type: 'basic',
-    iconUrl: 'icon.png',
+    iconUrl: 'icons/128.png',
     title: `Time's up on ${msg.site}`,
     message: `Your ${msg.limit} limit is up, so the tab was closed.`,
   });

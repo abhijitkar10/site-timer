@@ -1,11 +1,15 @@
 {
   "manifest_version": 3,
   "name": "Site Timer",
-  "version": "2.1",
-  "description": "Per-site countdown that closes the tab when time's up, to stop doomscrolling.",
+  "version": "3.0.0",
+  "description": "Give each site a time limit. When it runs out, the tab closes. Stops doomscrolling.",
   "permissions": ["storage", "activeTab", "notifications"],
-  "icons": { "128": "icon.png" },
-  "action": { "default_popup": "popup.html", "default_title": "Site Timer settings" },
+  "icons": { "16": "icons/16.png", "32": "icons/32.png", "48": "icons/48.png", "128": "icons/128.png" },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Site Timer",
+    "default_icon": { "16": "icons/16.png", "32": "icons/32.png" }
+  },
   "background": { "service_worker": "background.js" },
   "content_scripts": [
     {
