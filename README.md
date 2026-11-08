@@ -18,9 +18,8 @@ site you're on with the default minutes.
 curl -fsSL https://raw.githubusercontent.com/abhijitkar10/site-timer/main/install.sh | bash
 ```
 
-- **Helium**: fully automatic. Open Helium via the `Helium Timer` app the script creates.
-- **Chrome**: Chrome won't let scripts add extensions, so the script opens `chrome://extensions`
-  and copies the folder path; you click Developer mode → Load unpacked → paste.
-- **Any other Chromium browser**: Load unpacked `~/.site-timer` from its extensions page.
+Works in Helium, Chrome, Brave, Edge, Arc, Vivaldi. Browsers don't let scripts add extensions, so the
+script opens each browser's extensions page and copies the folder path; you click Developer mode →
+Load unpacked → paste the path (first time only). Add `-s helium` after `bash` for one browser.
 
 Notifications need your browser allowed in macOS System Settings → Notifications.
